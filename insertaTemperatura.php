@@ -1,6 +1,12 @@
 <?php
     //Autor: Diego Manjarrez Viveros
-    //Inserta un renglón en employees
+    //Inserta las mediciones en la base de datos
+
+    /*
+
+NO OLVIDAR QUE PARA HACER LOS EJERCICIOS NECESITAS USAR LA CARPETA DE EHERCICIOS
+
+    */
     include "conexion.php";
      
     $valor = $_GET["valor"];
