@@ -1,18 +1,24 @@
 <?php
     //Autor: Diego Manjarrez Viveros
     //Inserta las mediciones en la base de datos
-
     /*
 
-NO OLVIDAR QUE PARA HACER LOS EJERCICIOS NECESITAS USAR LA CARPETA DE EHERCICIOS
+NO OLVIDAR QUE PARA HACER LOS EJERCICIOS NECESITAS USAR LA CARPETA DE EJERCICIOS
 
     */
     include "conexion.php";
-     
+    
+    //Dirección IP y/o Mac Address de la tarjeta
+    $ip = getenv("REMOTE_ADDR");
+    echo "Your IP Address is " . $ip;
+
+    //Fecha y hora 
+    $fechaActual = date('d/m/y');
+    $horaActual = date("h:i:s");
     $valor = $_GET["valor"];
     $humedad = $_GET["humedad"];
 
-    $sql_agregar = "INSERT INTO Temperatura (valor, humedad) VALUES (?, ?)";
+    $sql_agregar = "INSERT INTO temperatura (valor, humedad, ip, fechaActual, horaActual) VALUES (?, ?, ?, ?, ?)";
     $sentencia_agregar = $pdo -> prepare($sql_agregar);
     $resultado = $sentencia_agregar -> execute(array($valor, $humedad));
 
